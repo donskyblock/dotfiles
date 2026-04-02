@@ -112,6 +112,8 @@
     spotify
     git
     fastfetch
+    rustup
+    cargo
   ];
 
   nix.settings.experimental-features = "flakes nix-command";
