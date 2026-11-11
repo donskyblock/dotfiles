@@ -12,7 +12,7 @@ A complete desktop setup for **Void Linux + COSMIC**, with matching shell and ap
 | COSMIC | Navy surfaces, blue accents, rounded corners, 6 / 12 px window gaps, 2 px focus hint |
 | Panel & dock | Inset top panel, compact auto-hiding floating dock, restrained transparency and frosted system surfaces |
 | Terminal | Matching COSMIC Terminal and Foot palettes, comfortable padding, soft text, blue cursor |
-| Shell | Two-line Bash prompt, coloured file listings, `ll` and `dots` shortcuts |
+| Shell | Fish + Fisher, Tokyo Night Git prompt, fuzzy search, zoxide, and Bash fallback |
 | Fastfetch | Void logo with blue / lavender headings and an OS-age helper |
 | VS Code | Local Tokyo Night theme, matching syntax and terminal colours, clean tabs, Seti icons |
 | Firefox | Navy tabs, toolbar, menus and sidebar; blue focus accents; Nightfall new-tab wallpaper |
@@ -64,6 +64,60 @@ python3 rice.py --apply --fetch-wallpaper
 
 See [wallpaper sources and details](WALLPAPERS.md). The initial setup used Nightfall
 because direct GitHub downloads were unavailable in the execution environment.
+
+## Fish + Fisher
+
+On Void, install the dependencies with:
+
+```sh
+sudo xbps-install -S fish-shell fzf zoxide fd
+python3 install.py --apply
+exec fish
+```
+
+New COSMIC Terminal, Foot, and VS Code terminals launch `/usr/bin/fish`. The system
+login shell stays unchanged; Bash remains available with `bash`. Fish-dependent
+terminal settings require Fish to be installed before using the complete setup.
+
+The prompt shows the current directory, Git branch and working-tree state, Python
+virtual environment, failed-command status, and elapsed time for commands over two
+seconds. It uses installed fonts without requiring Nerd Font icons. Native Fish
+provides autosuggestions, highlighting, completions, and directory history.
+
+| Shortcut | Action |
+| --- | --- |
+| Ctrl-R | Fuzzy command history |
+| Ctrl-T | Find and insert a file path |
+| Alt-C | Pick and enter a directory |
+| Right / Ctrl-F | Accept an autosuggestion |
+| `z NAME` / `zi` | Smart directory jump / interactive jump |
+| `ll` / `la` | Detailed listing / hidden entries |
+| `mkcd NAME` | Create a directory and enter it |
+| `dots` | Go to this repository |
+| `gs` / `gd` / `gds` / `gl` | Git status / diff / staged diff / recent graph |
+| `shellhelp` | Show the shortcuts |
+
+[Fisher](https://github.com/jorgebucaran/fisher) 4.4.8 is bundled as an autoloaded
+function, with its MIT license in `home/.config/fish/FISHER-LICENSE`. It works without
+a network connection for local plugins. Remote plugin installation needs network:
+
+```fish
+fisher install OWNER/PLUGIN
+fisher list
+fisher update OWNER/PLUGIN
+fisher remove OWNER/PLUGIN
+```
+
+Fisher itself is versioned here; update its bundled source and license deliberately
+rather than asking Fisher to overwrite its own managed files. The daily features
+use Fish, fzf, and zoxide directly, with no extra downloaded plugins.
+
+Put private overrides in `~/.config/fish/local.fish`. Fish history, universal
+variables, zoxide's database, Fisher's installed-plugin metadata, and newly downloaded
+plugin files stay outside the tracked allowlist. To version an extra plugin, review
+its source and license and add only the intended files to the manifest and allowlist.
+Fisher can replace symlinks when updating a plugin, so avoid letting plugins own the
+same files as your custom configuration.
 
 ## VS Code
 
