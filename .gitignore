@@ -216,3 +216,12 @@
 !/home/.local/share/wallpapers/tokyo-night.svg
 !/home/.config/cosmic/com.system76.CosmicTk/v1/interface_font
 !/home/.config/cosmic/com.system76.CosmicTk/v1/monospace_font
+!/home/.config/Code/
+!/home/.config/Code/User/
+!/home/.config/Code/User/settings.json
+!/home/.vscode/
+!/home/.vscode/extensions/
+!/home/.vscode/extensions/dotfiles.tokyo-night-cosmic-1.0.0/
+!/home/.vscode/extensions/dotfiles.tokyo-night-cosmic-1.0.0/package.json
+!/home/.vscode/extensions/dotfiles.tokyo-night-cosmic-1.0.0/themes/
+!/home/.vscode/extensions/dotfiles.tokyo-night-cosmic-1.0.0/themes/tokyo-night.json

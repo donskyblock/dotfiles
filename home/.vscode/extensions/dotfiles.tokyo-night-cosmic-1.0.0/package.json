@@ -1,0 +1,23 @@
+{
+  "name": "tokyo-night-cosmic",
+  "displayName": "Tokyo Night COSMIC",
+  "description": "A local Tokyo Night theme matching the COSMIC dotfiles.",
+  "version": "1.0.0",
+  "publisher": "dotfiles",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "id": "Tokyo Night COSMIC",
+        "label": "Tokyo Night COSMIC",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokyo-night.json"
+      }
+    ]
+  }
+}

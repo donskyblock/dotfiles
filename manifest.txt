@@ -1,6 +1,7 @@
 .bash_logout
 .bash_profile
 .bashrc
+.config/Code/User/settings.json
 .config/autostart/cosmic-store-notifier.desktop
 .config/cosmic/com.system76.CosmicAppletTime/v1/first_day_of_week
 .config/cosmic/com.system76.CosmicAppletTime/v1/military_time
@@ -169,3 +170,5 @@
 .config/mango/config.conf
 .inputrc
 .local/share/wallpapers/tokyo-night.svg
+.vscode/extensions/dotfiles.tokyo-night-cosmic-1.0.0/package.json
+.vscode/extensions/dotfiles.tokyo-night-cosmic-1.0.0/themes/tokyo-night.json

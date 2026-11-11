@@ -14,6 +14,7 @@ A complete desktop setup for **Void Linux + COSMIC**, with matching shell and ap
 | Terminal | Matching COSMIC Terminal and Foot palettes, comfortable padding, soft text, blue cursor |
 | Shell | Two-line Bash prompt, coloured file listings, `ll` and `dots` shortcuts |
 | Fastfetch | Void logo with blue / lavender headings and an OS-age helper |
+| VS Code | Local Tokyo Night theme, matching syntax and terminal colours, clean tabs, Seti icons |
 | Firefox | Navy tabs and toolbar, blue active-tab underline, matching address bar and new-tab page |
 | GTK | Matching named colours for GTK 3 / 4, dark preference, Papirus-Dark icons |
 | MangoWC | Matching colours for the alternate compositor |
@@ -63,6 +64,20 @@ python3 rice.py --apply --fetch-wallpaper
 
 See [wallpaper sources and details](WALLPAPERS.md). The initial setup used Nightfall
 because direct GitHub downloads were unavailable in the execution environment.
+
+## VS Code
+
+A local colour-theme extension lives under `home/.vscode/extensions/`; its package
+and theme JSON files are linked into VS Code's extension directory. No Marketplace
+download or executable extension code is needed. User appearance settings are linked
+from `home/.config/Code/User/settings.json`. Workspace storage, chat state, extension
+state, authentication, and sync data stay outside this repository.
+
+After installation, fully quit and reopen VS Code so it discovers the local theme.
+If needed, choose **Tokyo Night COSMIC** from **Preferences: Color Theme**.
+The setup uses installed DejaVu Sans Mono, built-in Seti file icons, and a matching
+integrated terminal palette. Keep tokens and private settings out of the tracked
+user settings; use environment variables for credentials.
 
 ## Firefox
 
