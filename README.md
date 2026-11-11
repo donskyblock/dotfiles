@@ -15,7 +15,7 @@ A complete desktop setup for **Void Linux + COSMIC**, with matching shell and ap
 | Shell | Two-line Bash prompt, coloured file listings, `ll` and `dots` shortcuts |
 | Fastfetch | Void logo with blue / lavender headings and an OS-age helper |
 | VS Code | Local Tokyo Night theme, matching syntax and terminal colours, clean tabs, Seti icons |
-| Firefox | Navy tabs and toolbar, blue active-tab underline, matching address bar and new-tab page |
+| Firefox | Navy tabs, toolbar, menus and sidebar; blue focus accents; Nightfall new-tab wallpaper |
 | GTK | Matching named colours for GTK 3 / 4, dark preference, Papirus-Dark icons |
 | MangoWC | Matching colours for the alternate compositor |
 | Wallpaper | Original editable 4K Nightfall artwork; optional GitHub wallpaper download |
@@ -82,11 +82,11 @@ user settings; use environment variables for credentials.
 ## Firefox
 
 The installer finds the default Firefox profile from `profiles.ini`, links only the
-two stylesheets, and adds the preference required to load them to `user.js`.
+two stylesheets and the Nightfall wallpaper, and adds the preference required to load them to `user.js`.
 Existing files are preserved in private backups. No history, cookies, saved logins,
 `prefs.js`, or other profile contents are copied into this repository.
 If no default profile can be identified, the browser step is skipped with a message.
-The CSS styles the browser UI and built-in new-tab page; website colours remain
+The CSS styles the browser UI, settings pages, and built-in new-tab page; website colours remain
 under each website's control. Firefox updates can require stylesheet adjustments.
 
 ## Make it yours

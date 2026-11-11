@@ -1,12 +1,68 @@
-@-moz-document url("about:newtab"), url("about:home"), url("about:blank") {
+/* Restrict custom content styling to Firefox's own pages. */
+@-moz-document url("about:newtab"), url("about:home") {
   :root, body {
-    background-color: #1a1b26 !important;
+    color-scheme: dark !important;
+    background: #1a1b26 url("nightfall.svg") center / cover fixed !important;
     color: #c0caf5 !important;
     --newtab-background-color: #1a1b26 !important;
     --newtab-background-color-secondary: #24283b !important;
     --newtab-text-primary-color: #c0caf5 !important;
-    --newtab-primary-action-background: #7aa2f7 !important;
     --newtab-text-secondary-color: #a9b1d6 !important;
+    --newtab-primary-action-background: #7aa2f7 !important;
+    --newtab-primary-action-text-color: #16161e !important;
+    --newtab-element-hover-color: #292e42 !important;
+    --newtab-element-active-color: #33467c !important;
+    --newtab-border-color: #414868 !important;
   }
-  .search-wrapper .search-handoff-button { background-color: #24283b !important; color: #c0caf5 !important; border-radius: 12px !important; }
+  .outer-wrapper { background: transparent !important; }
+  .search-wrapper .search-handoff-button, .search-wrapper input {
+    background-color: #16161ee8 !important;
+    color: #c0caf5 !important;
+    border: 1px solid #414868 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 8px 28px #10111c55 !important;
+  }
+  .search-wrapper .search-handoff-button:focus-within {
+    outline: 2px solid #7aa2f7 !important;
+  }
+  .top-site-outer .tile {
+    background-color: #24283be8 !important;
+    border: 1px solid #414868 !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+  }
+  .top-site-outer .title { color: #c0caf5 !important; text-shadow: 0 1px 4px #10111c !important; }
+  .top-site-outer:hover { background-color: #292e42b0 !important; border-radius: 14px !important; }
+  .card-outer, .ds-card-grid .ds-card { background-color: #24283bf2 !important; color: #c0caf5 !important; }
+  .personalize-button { background-color: #24283b !important; color: #a9b1d6 !important; }
+}
+@-moz-document url("about:blank") {
+  :root, body { background: #1a1b26 !important; color: #c0caf5 !important; color-scheme: dark !important; }
+}
+@-moz-document url-prefix("about:preferences"), url-prefix("about:addons"), url-prefix("about:downloads"), url-prefix("about:logins"), url-prefix("about:config") {
+  :root {
+    color-scheme: dark !important;
+    --in-content-page-background: #1a1b26 !important;
+    --in-content-page-color: #c0caf5 !important;
+    --in-content-box-background: #24283b !important;
+    --in-content-box-background-odd: #292e42 !important;
+    --in-content-box-border-color: #414868 !important;
+    --in-content-box-info-background: #24283b !important;
+    --in-content-text-color: #c0caf5 !important;
+    --in-content-deemphasized-text: #a9b1d6 !important;
+    --in-content-primary-button-background: #7aa2f7 !important;
+    --in-content-primary-button-text-color: #16161e !important;
+    --in-content-primary-button-background-hover: #89b4ff !important;
+    --in-content-button-background: #292e42 !important;
+    --in-content-button-background-hover: #33467c !important;
+    --in-content-link-color: #7aa2f7 !important;
+    --in-content-link-color-hover: #7dcfff !important;
+    --in-content-focus-outline-color: #7aa2f7 !important;
+    --background-color-canvas: #1a1b26 !important;
+    --background-color-box: #24283b !important;
+    --text-color: #c0caf5 !important;
+    --text-color-deemphasized: #a9b1d6 !important;
+    --border-color: #414868 !important;
+    --color-accent-primary: #7aa2f7 !important;
+  }
 }

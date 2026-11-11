@@ -33,3 +33,61 @@
 #urlbar[focused] > #urlbar-background { outline: 1px solid #7aa2f7 !important; }
 #PersonalToolbar { background: #1a1b26 !important; color: #a9b1d6 !important; }
 /* Keep native titlebar buttons and all standard navigation controls. */
+
+/* Shared component colours, including newer Firefox UI tokens. */
+:root {
+  color-scheme: dark !important;
+  --background-color-canvas: #1a1b26 !important;
+  --background-color-box: #24283b !important;
+  --text-color: #c0caf5 !important;
+  --text-color-deemphasized: #a9b1d6 !important;
+  --border-color: #414868 !important;
+  --color-accent-primary: #7aa2f7 !important;
+  --color-accent-primary-hover: #89b4ff !important;
+  --button-background-color: #292e42 !important;
+  --button-background-color-hover: #33467c !important;
+  --button-background-color-active: #414868 !important;
+  --button-text-color: #c0caf5 !important;
+  --button-background-color-primary: #7aa2f7 !important;
+  --button-text-color-primary: #16161e !important;
+  --toolbarbutton-hover-background: #292e42 !important;
+  --toolbarbutton-active-background: #33467c !important;
+  --sidebar-background-color: #16161e !important;
+  --sidebar-text-color: #c0caf5 !important;
+  --sidebar-border-color: #292e42 !important;
+  --tabpanel-background-color: #1a1b26 !important;
+  --tab-loading-fill: #bb9af7 !important;
+  --tab-attention-icon-color: #bb9af7 !important;
+  --lwt-tab-text: #a9b1d6 !important;
+}
+#sidebar-main, #sidebar-box, #sidebar-header {
+  background-color: #16161e !important;
+  color: #c0caf5 !important;
+}
+#sidebar-splitter { border-color: #292e42 !important; }
+#urlbar-results { color: #c0caf5 !important; }
+.urlbarView-row[selected] .urlbarView-row-inner { background: #33467c !important; }
+.urlbarView-url { color: #7dcfff !important; }
+.urlbarView-title-separator, .urlbarView-action { color: #a9b1d6 !important; }
+menupopup, panel {
+  --panel-background: #24283b !important;
+  --panel-color: #c0caf5 !important;
+  --panel-border-color: #414868 !important;
+  --panel-border-radius: 12px !important;
+  --panel-item-hover-bgcolor: #33467c !important;
+  --panel-item-active-bgcolor: #414868 !important;
+}
+menuitem, menu { border-radius: 5px !important; }
+menuitem[_moz-menuactive="true"], menu[_moz-menuactive="true"] {
+  background-color: #33467c !important;
+  color: #c0caf5 !important;
+}
+#statuspanel-label {
+  background: #24283b !important;
+  color: #a9b1d6 !important;
+  border: 1px solid #414868 !important;
+  border-radius: 6px !important;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tab-background { transition: background-color 120ms ease, box-shadow 120ms ease !important; }
+}

@@ -91,6 +91,7 @@ def apply(fetch=False):
     if profile and profile.is_dir():
         for name in ('userChrome.css', 'userContent.css'):
             link(REPO / 'home/.config/firefox-theme' / name, profile / 'chrome' / name, backup)
+        link(REPO / 'home/.local/share/wallpapers/tokyo-night.svg', profile / 'chrome/nightfall.svg', backup)
         userjs = profile / 'user.js'
         preference = 'user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);'
         current = userjs.read_text() if userjs.exists() else ''
