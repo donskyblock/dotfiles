@@ -10,6 +10,8 @@ allowed.update({'sddm/tokyo-night/LICENSE', 'sddm/README.md', 'sddm/install.py',
 
 allowed.update({'git/setup.py', 'git/README.md'})
 
+allowed.update({'cursor/apply.py', 'cursor/README.md'})
+
 def git(*args):
     return subprocess.check_output(['git', '-C', str(repo), *args])
 # Read the allowlist from the index too: checking a commit must not trust

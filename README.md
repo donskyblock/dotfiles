@@ -11,6 +11,7 @@ A complete desktop setup for **Void Linux + COSMIC**, with matching shell and ap
 | --- | --- |
 | SDDM | Matching Nightfall login screen, session selector, password controls, clock, and power actions |
 | COSMIC | Navy surfaces, blue accents, rounded corners, 6 / 12 px window gaps, 2 px focus hint |
+| Cursor | Complete black 20 px cursor set, matching toolkit settings, animated busy states |
 | Panel & dock | Inset top panel, compact auto-hiding floating dock, restrained transparency and frosted system surfaces |
 | Terminal | Matching COSMIC Terminal and Foot palettes, comfortable padding, soft text, blue cursor |
 | Shell | Fish + Fisher, Tokyo Night Git prompt, fuzzy search, zoxide, and Bash fallback |
@@ -65,6 +66,13 @@ python3 rice.py --apply --fetch-wallpaper
 
 See [wallpaper sources and details](WALLPAPERS.md). The initial setup used Nightfall
 because direct GitHub downloads were unavailable in the execution environment.
+
+## Cursor
+
+The black cursor is 20 px, with distinct text, link, drag, and resize shapes.
+It is generated from installed Adwaita assets and configured consistently for
+COSMIC, GTK, and Xcursor clients. **Log out and back in after installing** to
+refresh COSMIC's cached cursor theme. See [cursor setup](cursor/README.md).
 
 ## SDDM login screen
 

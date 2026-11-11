@@ -267,3 +267,15 @@
 /git/**
 !/git/setup.py
 !/git/README.md
+!/home/.config/autostart/dotfiles-cursor.desktop
+!/home/.icons/
+!/home/.icons/default/
+!/home/.icons/default/index.theme
+!/home/.local/bin/dotfiles-cursor-session
+!/home/.local/share/icons/
+!/home/.local/share/icons/default/
+!/home/.local/share/icons/default/index.theme
+!/cursor/
+/cursor/**
+!/cursor/apply.py
+!/cursor/README.md

@@ -1,5 +1,7 @@
 # Tokyo Night Fish. Keep secrets in ~/.config/fish/local.fish, outside Git.
 fish_add_path --global --move "$HOME/.local/bin"
+set -gx XCURSOR_THEME TokyoNight-Black
+set -gx XCURSOR_SIZE 20
 status is-interactive; or return
 
 set -g fish_greeting

@@ -3,6 +3,7 @@
 .bashrc
 .config/Code/User/settings.json
 .config/autostart/cosmic-store-notifier.desktop
+.config/autostart/dotfiles-cursor.desktop
 .config/autostart/dotfiles-keyring.desktop
 .config/cosmic/com.system76.CosmicAppletTime/v1/first_day_of_week
 .config/cosmic/com.system76.CosmicAppletTime/v1/military_time
@@ -185,9 +186,12 @@
 .config/gtk-4.0/gtk.css
 .config/gtk-4.0/settings.ini
 .config/mango/config.conf
+.icons/default/index.theme
 .inputrc
+.local/bin/dotfiles-cursor-session
 .local/bin/dotfiles-keyring-session
 .local/bin/dotfiles-ssh-askpass
+.local/share/icons/default/index.theme
 .local/share/wallpapers/tokyo-night.svg
 .vscode/extensions/dotfiles.tokyo-night-cosmic-1.0.0/package.json
 .vscode/extensions/dotfiles.tokyo-night-cosmic-1.0.0/themes/tokyo-night.json

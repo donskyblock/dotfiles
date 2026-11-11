@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Cursor theme preferences
+Comment=Keep a complete black cursor set consistent across desktop apps
+Exec=sh -c "exec ~/.local/bin/dotfiles-cursor-session --live"
+NoDisplay=true
