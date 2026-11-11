@@ -33,7 +33,7 @@ set -g fish_pager_color_completion c0caf5
 set -g fish_pager_color_description a9b1d6
 set -g fish_pager_color_progress bb9af7
 set -g fish_pager_color_selected_background --background=292e42
-set -gx LS_COLORS 'di=38;2;122;162;247:ln=38;2;125;207;255:ex=38;2;158;206;106:ar=38;2;187;154;247:*.gz=38;2;224;175;104:*.zip=38;2;224;175;104'
+set -gx LS_COLORS 'di=38;2;122;162;247:ln=38;2;125;207;255:ex=38;2;158;206;106:*.tar=38;2;187;154;247:*.7z=38;2;187;154;247:*.xz=38;2;187;154;247:*.gz=38;2;224;175;104:*.zip=38;2;224;175;104'
 
 # Git status uses Fish's bundled implementation; no prompt plugins required.
 set -g __fish_git_prompt_showdirtystate 1
