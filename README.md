@@ -140,6 +140,55 @@ its source and license and add only the intended files to the manifest and allow
 Fisher can replace symlinks when updating a plugin, so avoid letting plugins own the
 same files as your custom configuration.
 
+## Native Discord + Equicord
+
+The user-owned native Discord application and explicit Equicord injection helper
+are documented in [native Discord setup](discord/README.md). Launch **Discord
+(Native)** or run `discord`; after rebuilding Equicord, run `equicord-inject`.
+Client profiles and application binaries are outside Git. The original **Nightfall ·
+Tokyo Night** Equicord theme matches the desktop and loads through a local QuickCSS
+import; its CSS is versioned under `home/.config/Equicord/themes/`.
+
+## Node, npm, and pnpm
+
+Fish uses [nvm.fish](https://github.com/jorgebucaran/nvm.fish), a Fish-native Node
+version manager. It is bundled with its MIT license as `NVM-LICENSE`; the index
+helper rejects HTTP failures and installation stops when an index download fails.
+The POSIX `nvm-sh` script is not needed or installed.
+
+After installing the dotfiles, download the runtimes and package managers once:
+
+```fish
+~/.local/bin/dotfiles-node-setup; and exec fish
+```
+
+This installs the latest **Node 22.x**, **npm 11.x**, and current **pnpm** as your
+user. It needs internet access and never uses `sudo`. The setup agent could not
+perform these downloads because its environment could not resolve `nodejs.org`.
+The helper checks all three version commands before reporting success.
+
+`zz-node-default.fish` selects Node 22 for new interactive and noninteractive Fish
+shells, including VS Code terminals and Fish tasks, after it is installed. Before
+installation, shell startup stays quiet and does not attempt any downloads.
+`nvm_default_packages` installs npm 11 and pnpm with future Node installs; those
+package versions require a compatible Node release. `PNPM_HOME` is set to
+`~/.local/share/pnpm`, with its global executable directory on PATH.
+
+```fish
+nvm list
+nvm use 22
+nvm install                 # read the nearest .nvmrc or .node-version
+node --version
+npm --version
+pnpm --version
+```
+
+Node binaries, npm credentials, pnpm's store, and downloaded package state stay
+outside Git. No npm prefix is forced, so the version manager owns global packages
+inside the active Node installation. Fisher itself and this bundled nvm.fish
+configuration are versioned here; avoid assigning another plugin ownership of
+these managed files without reviewing conflicts.
+
 ## VS Code
 
 A local colour-theme extension lives under `home/.vscode/extensions/`; its package

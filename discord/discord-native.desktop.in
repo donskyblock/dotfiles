@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Discord (Native)
+GenericName=Internet Messenger
+Comment=Native Discord with the local Equicord build
+Exec="@HOME@/.local/bin/discord" %U
+Icon=discord-native
+Terminal=false
+StartupNotify=true
+StartupWMClass=discord
+Categories=Network;InstantMessaging;
+MimeType=x-scheme-handler/discord;

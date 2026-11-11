@@ -2,6 +2,7 @@
 .bash_profile
 .bashrc
 .config/Code/User/settings.json
+.config/Equicord/themes/tokyo-night.theme.css
 .config/autostart/cosmic-store-notifier.desktop
 .config/autostart/dotfiles-cursor.desktop
 .config/autostart/dotfiles-keyring.desktop
@@ -167,9 +168,17 @@
 .config/firefox-theme/userChrome.css
 .config/firefox-theme/userContent.css
 .config/fish/FISHER-LICENSE
+.config/fish/NVM-LICENSE
 .config/fish/completions/fisher.fish
+.config/fish/completions/nvm.fish
 .config/fish/conf.d/30-git-agents.fish
+.config/fish/conf.d/nvm.fish
+.config/fish/conf.d/zz-node-default.fish
 .config/fish/config.fish
+.config/fish/functions/_nvm_index_update.fish
+.config/fish/functions/_nvm_list.fish
+.config/fish/functions/_nvm_version_activate.fish
+.config/fish/functions/_nvm_version_deactivate.fish
 .config/fish/functions/dots.fish
 .config/fish/functions/fish_prompt.fish
 .config/fish/functions/fish_right_prompt.fish
@@ -177,6 +186,7 @@
 .config/fish/functions/fisher.fish
 .config/fish/functions/ma.fish
 .config/fish/functions/mkcd.fish
+.config/fish/functions/nvm.fish
 .config/fish/functions/shellhelp.fish
 .config/foot/foot.ini
 .config/git/config
@@ -188,9 +198,12 @@
 .config/mango/config.conf
 .icons/default/index.theme
 .inputrc
+.local/bin/discord
 .local/bin/dotfiles-cursor-session
 .local/bin/dotfiles-keyring-session
+.local/bin/dotfiles-node-setup
 .local/bin/dotfiles-ssh-askpass
+.local/bin/equicord-inject
 .local/share/icons/default/index.theme
 .local/share/wallpapers/tokyo-night.svg
 .vscode/extensions/dotfiles.tokyo-night-cosmic-1.0.0/package.json

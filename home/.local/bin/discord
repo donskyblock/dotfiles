@@ -1,0 +1,10 @@
+#!/bin/sh
+# User-owned native Discord. No sandbox-disabling flags or elevated privileges.
+set -eu
+app="$HOME/.local/opt/discord/Discord"
+if [ ! -x "$app" ]; then
+    printf '%s\n' 'Native Discord is not installed. Run the dotfiles Discord installer.' >&2
+    exit 1
+fi
+export EQUICORD_USER_DATA_DIR="$HOME/.config/Equicord"
+exec "$app" "$@"

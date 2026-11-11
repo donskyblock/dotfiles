@@ -55,6 +55,7 @@ if args.apply:
     subprocess.run(['git', '-C', str(repo), 'config', '--local', 'core.hooksPath', 'hooks'], check=True)
     subprocess.run(['python3', str(repo / 'rice.py'), '--apply'], check=True)
     subprocess.run(['python3', str(repo / 'cursor/apply.py')], check=True)
+    subprocess.run(['python3', str(repo / 'discord/theme.py'), '--apply'], check=True)
     print(f'Done. Any replaced originals are in {backup}')
 else:
     print('Preview only. Run with --apply to install.')

@@ -1,0 +1,32 @@
+#!/usr/bin/env fish
+# Install user-owned Node 22, npm 11, and the current pnpm release.
+if not type -q nvm
+    printf 'Install the dotfiles links first: python3 ~/dotfiles/install.py --apply\n' >&2
+    exit 1
+end
+
+# Install npm explicitly below, so an npm failure cannot be hidden by nvm's
+# informational version output. New installs outside this helper still use defaults.
+set -g nvm_default_packages
+nvm install 22; or exit $status
+npm install --global npm@11 pnpm@latest; or exit $status
+command mkdir -p "$PNPM_HOME"
+set -g nvm_default_packages npm@11 pnpm@latest
+
+set -l node_version (node --version)
+set -l npm_version (npm --version)
+set -l pnpm_version (pnpm --version)
+if not string match -qr '^v22\.' -- "$node_version"
+    printf 'Unexpected Node version: %s\n' "$node_version" >&2
+    exit 1
+end
+if not string match -qr '^11\.' -- "$npm_version"
+    printf 'Unexpected npm version: %s\n' "$npm_version" >&2
+    exit 1
+end
+if test -z "$pnpm_version"
+    printf 'pnpm did not start correctly.\n' >&2
+    exit 1
+end
+printf '\nReady: Node %s · npm %s · pnpm %s\n' "$node_version" "$npm_version" "$pnpm_version"
+printf 'Node 22 is the default in new Fish shells. Run exec fish to reload this shell.\n'

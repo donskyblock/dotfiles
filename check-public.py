@@ -12,6 +12,8 @@ allowed.update({'git/setup.py', 'git/README.md'})
 
 allowed.update({'cursor/apply.py', 'cursor/README.md'})
 
+allowed.update({'discord/setup.py', 'discord/README.md', 'discord/discord-native.desktop.in', 'discord/theme.py'})
+
 def git(*args):
     return subprocess.check_output(['git', '-C', str(repo), *args])
 # Read the allowlist from the index too: checking a commit must not trust
