@@ -1,91 +1,136 @@
-# dotfiles
+# Tokyo Night · COSMIC
 
-A small collection of Linux desktop and shell preferences: Void Linux, MangoWC,
-COSMIC, and a green Fastfetch theme.
+Midnight navy, soft blue, lavender, and a quiet mountain skyline.
+A complete desktop setup for **Void Linux + COSMIC**, with matching shell and app colours.
 
-The real files live in this repository. Symlinks put them where applications
-expect them, so editing `home/.bashrc` here updates `~/.bashrc` immediately.
+![Nightfall — original Tokyo Night wallpaper](home/.local/share/wallpapers/tokyo-night.svg)
 
-## What's inside
+## The look
 
-| Config | Purpose |
+| Layer | Details |
 | --- | --- |
-| Bash | Prompt, aliases, local bin path, and `ma` compositor launcher |
-| Readline | System input defaults |
-| MangoWC | Layouts, animations, colours, and key bindings |
-| Fastfetch | Void-themed system summary and installation-age estimate |
-| COSMIC | Dock, panel, tiling, background, and clock preferences |
-| Autostart | Disable the COSMIC Store update notifier |
+| COSMIC | Navy surfaces, blue accents, rounded corners, 6 / 12 px window gaps, 2 px focus hint |
+| Panel & dock | Inset top panel, compact floating dock, restrained transparency and frosted system surfaces |
+| Terminal | Matching COSMIC Terminal and Foot palettes, comfortable padding, soft text, blue cursor |
+| Shell | Two-line Bash prompt, coloured file listings, `ll` and `dots` shortcuts |
+| Fastfetch | Void logo with blue / lavender headings and an OS-age helper |
+| Firefox | Navy tabs and toolbar, blue active-tab underline, matching address bar and new-tab page |
+| GTK | Matching named colours for GTK 3 / 4, dark preference, Papirus-Dark icons |
+| MangoWC | Matching colours for the alternate compositor |
+| Wallpaper | Original editable 4K Nightfall artwork; optional GitHub wallpaper download |
 
-`manifest.txt` is the explicit list of managed files. Individual files are linked;
-unrelated files in `~/.config` stay independent.
+| Background | Surface | Text | Blue | Lavender | Cyan | Green | Rose |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `#1a1b26` | `#24283b` | `#c0caf5` | `#7aa2f7` | `#bb9af7` | `#7dcfff` | `#9ece6a` | `#f7768e` |
 
 ## Install
 
-Requires Python 3 and Git. Clone this repository to a permanent location, then run:
+Requires **Git, Python 3, PyGObject, GdkPixbuf, and the librsvg image loader**.
+The setup uses already installed Noto Sans / DejaVu Sans Mono fonts and Papirus-Dark
+icons. Install the relevant apps separately; this repository does not install packages.
+
+Clone to a permanent location and run:
 
 ```sh
 cd dotfiles
-python3 install.py          # preview
-python3 install.py --apply  # back up originals and create symlinks
+python3 install.py          # preview only
+python3 install.py --apply  # preserve originals and install the complete rice
 ```
 
-Existing files are moved to `~/.local/state/dotfiles/backups/<timestamp>/`,
-outside Git. Re-running the installer leaves correct links alone and refuses
-conflicting directories or symlinked parent directories. Keep this repository
-in place after installation. To move it, remove its old links and run the installer
-from the new location.
+The repository contains the real files; individual symlinks put them where apps
+expect them. Edit `home/.bashrc` here and your live `~/.bashrc` changes immediately.
+The installer preserves replaced files under
+`~/.local/state/dotfiles/backups/<timestamp>/`, outside Git. Re-running it refreshes
+links without backing up the same links again, and notifies COSMIC's config watchers.
+Unrelated configs stay independent.
 
-The installer also enables this repository's pre-commit check. Git hooks are local:
-run the installer on each clone. It does not install packages or change system services.
+Open a new terminal to get the prompt. **Fully quit and reopen Firefox** to load
+its stylesheet. COSMIC usually watches config changes live; if any element stays
+unchanged, log out and back in after saving your work.
 
-## Everyday use
+Keep this repository in place. If you move it, remove its old links and run the
+installer from the new location. The `dots` shell shortcut assumes `~/dotfiles`.
 
-Edit files under `home/`, then review and commit:
+## Wallpaper
+
+Nightfall is rendered locally from the tracked SVG to an untracked PNG. The actual
+COSMIC wallpaper path is generated outside the repo, so it works under any username.
+For the optional GitHub wallpaper:
+
+```sh
+python3 rice.py --apply --fetch-wallpaper
+```
+
+See [wallpaper sources and details](WALLPAPERS.md). The initial setup used Nightfall
+because direct GitHub downloads were unavailable in the execution environment.
+
+## Firefox
+
+The installer finds the default Firefox profile from `profiles.ini`, links only the
+two stylesheets, and adds the preference required to load them to `user.js`.
+Existing files are preserved in private backups. No history, cookies, saved logins,
+`prefs.js`, or other profile contents are copied into this repository.
+If no default profile can be identified, the browser step is skipped with a message.
+The CSS styles the browser UI and built-in new-tab page; website colours remain
+under each website's control. Firefox updates can require stylesheet adjustments.
+
+## Make it yours
+
+- Change COSMIC colours in `home/.config/cosmic/com.system76.CosmicTheme.Dark/v2/`.
+  The matching `.Dark.Builder` settings preserve the palette when editing Appearance.
+  Both installed v1 and v2 formats are included for compatibility.
+- Change dock and panel spacing in the `CosmicPanel.Dock` / `CosmicPanel.Panel` folders.
+- Edit `home/.local/share/wallpapers/tokyo-night.svg`; move the generated PNG aside
+  and run `python3 rice.py --apply` to render again.
+- Keep private shell exports in `~/.bashrc.local`; it is loaded by Bash and stays outside Git.
+- Mango's `ma` launcher selects `/dev/dri/card1` for NVIDIA; adjust that for your hardware.
+
+After editing repo files, run `python3 install.py --apply` to refresh COSMIC's watched
+links. Some apps rewrite config files by replacing symlinks; the installer preserves
+those files so you can compare changes. Settings can regenerate compiled theme values;
+review your diff afterward. GTK / libadwaita apps vary in how much custom CSS they honor.
+The setup was checked against the installed COSMIC 1.5-era schemas; other releases
+may change config formats. Complete live desktop appearance was not screenshot-verified
+because the setup environment could not access the desktop session bus.
+
+## Version control & privacy
 
 ```sh
 git diff
 git add -u
 python3 check-public.py
 git diff --cached
-git commit -m "Update desktop preferences"
+git commit -m "Tune Tokyo Night"
 ```
 
-Reload the shell or the relevant application to apply settings. Desktop apps may
-rewrite configuration files by replacing symlinks; re-run the installer if that
-happens (the replaced file is backed up so you can compare changes).
+New paths are ignored by default. To add a config, review its entire contents, copy
+it under `home/`, add its path to `manifest.txt`, and explicitly allow the file and
+parent directories in `.gitignore`. Stage it and review the staged diff before committing.
 
-Put private shell exports and machine-specific overrides in `~/.bashrc.local`.
-That file is loaded by Bash and is outside this repository.
+The installer enables a pre-commit hook. It checks the staged allowlist, file types,
+common credential paths, and secret patterns without printing suspected secrets.
+Hooks can be bypassed and pattern checks cannot detect every secret. Review every
+push; never put credentials into tracked files, even temporarily, because Git keeps history.
+Browser data, cloud/SSH credentials, history, logs, downloaded binaries, and private
+backups are excluded. No screenshots containing personal browser tabs are included.
 
-The `ma` launcher selects `/dev/dri/card1` for NVIDIA; adjust it for your hardware.
-Mango bindings expect `mango`, `dbus-run-session`, `foot`, and `rofi`. Fastfetch's
-age helper uses GNU `stat` and `date`. COSMIC preferences require a compatible COSMIC
-installation. Choose the relevant manifest entries before installing on a different setup.
+## Restore
 
-## Adding a config safely
-
-1. Copy only the config files you want to share into `home/`, preserving their paths.
-2. Review the entire contents for credentials and identifying information.
-3. Add each file to `manifest.txt` and explicitly allow its file and parent directories
-   in `.gitignore` (the repository ignores new paths by default).
-4. Stage it, run `python3 check-public.py`, review the staged diff, then install.
-
-Browser profiles, cookies, passwords, shell history, SSH/cloud credentials, app state,
-logs, and backups do not belong here. The commit hook checks the staged files against
-the manifest and common secret patterns; it cannot detect every secret and can be
-bypassed. Review changes before pushing, and enable GitHub secret scanning when available.
-Never put secrets into tracked files, including temporarily: Git preserves history.
-
-## Restore original files
-
-Close the relevant application, remove only the symlinks created by this installer,
-and move the matching files from your timestamped backup to their original paths.
-Files with no original backup can simply have their symlinks removed.
+Before restoring, close the relevant app. Remove only links created by this setup
+and move the matching original files from a timestamped private backup into place.
+For files with no previous original, remove the links to use application defaults.
+The initial Git commit preserves the pre-rice configs. Restoring those tracked files
+and refreshing their links restores the original shell / desktop preferences; remove
+new theme links separately. Firefox's original stylesheets and `user.js`, if present,
+are in the `rice-*` backup. If `user.js` did not exist before, remove the single
+`toolkit.legacyUserProfileCustomizations.stylesheets` preference added by this setup.
 
 ## Credits
 
-The Fastfetch config retains its attribution to
-[ExploitCraft/fastfetch-config](https://github.com/ExploitCraft/fastfetch-config).
-Mango's config retains its upstream configuration reference. Third-party material
-remains subject to its original licensing.
+- [Tokyo Night](https://github.com/enkia/tokyo-night-vscode-theme): palette inspiration.
+- [COSMIC](https://github.com/pop-os/libcosmic): installed default theme schemas and base data (MPL-2.0).
+- [ExploitCraft/fastfetch-config](https://github.com/ExploitCraft/fastfetch-config): original Fastfetch layout attribution retained.
+- [tokyo-night/wallpapers](https://github.com/tokyo-night/wallpapers): optional GitHub wallpaper source.
+
+Third-party material remains subject to its original licensing. Nightfall is original
+artwork; its permission notice is in [WALLPAPERS.md](WALLPAPERS.md).

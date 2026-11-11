@@ -1,0 +1,35 @@
+/* Tokyo Night browser chrome. No profile contents are stored in this repo. */
+:root {
+  --tn-bg: #1a1b26;
+  --tn-surface: #24283b;
+  --tn-text: #c0caf5;
+  --lwt-accent-color: #16161e !important;
+  --lwt-text-color: #c0caf5 !important;
+  --toolbar-bgcolor: #1a1b26 !important;
+  --toolbar-color: #c0caf5 !important;
+  --toolbar-field-background-color: #16161e !important;
+  --toolbar-field-color: #c0caf5 !important;
+  --toolbar-field-focus-background-color: #24283b !important;
+  --toolbar-field-focus-color: #c0caf5 !important;
+  --toolbar-field-focus-border-color: #7aa2f7 !important;
+  --toolbarbutton-icon-fill: #a9b1d6 !important;
+  --tab-selected-bgcolor: #292e42 !important;
+  --tab-selected-textcolor: #c0caf5 !important;
+  --tab-line-color: #7aa2f7 !important;
+  --chrome-content-separator-color: #292e42 !important;
+  --arrowpanel-background: #24283b !important;
+  --arrowpanel-color: #c0caf5 !important;
+  --arrowpanel-border-color: #414868 !important;
+  --panel-separator-color: #414868 !important;
+  --focus-outline-color: #7aa2f7 !important;
+  --urlbarView-highlight-background: #33467c !important;
+  --urlbarView-highlight-color: #c0caf5 !important;
+}
+#navigator-toolbox, #TabsToolbar { background: #16161e !important; color: #c0caf5 !important; }
+.tab-background { border-radius: 8px !important; margin-block: 5px !important; }
+.tab-background[selected] { box-shadow: inset 0 -2px #7aa2f7 !important; }
+#nav-bar { border-top: 0 !important; padding-block: 3px !important; }
+#urlbar-background, #searchbar { border-radius: 9px !important; }
+#urlbar[focused] > #urlbar-background { outline: 1px solid #7aa2f7 !important; }
+#PersonalToolbar { background: #1a1b26 !important; color: #a9b1d6 !important; }
+/* Keep native titlebar buttons and all standard navigation controls. */
