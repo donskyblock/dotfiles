@@ -8,6 +8,8 @@ allowed = {'.gitignore', 'README.md', 'install.py', 'check-public.py', 'manifest
 
 allowed.update({'sddm/tokyo-night/LICENSE', 'sddm/README.md', 'sddm/install.py', 'sddm/tests/Preview.qml', 'sddm/tests/check_install.py', 'sddm/tokyo-night/Main.qml', 'sddm/tokyo-night/metadata.desktop', 'sddm/tokyo-night/theme.conf', 'sddm/tokyo-night/ThemeButton.qml'})
 
+allowed.update({'git/setup.py', 'git/README.md'})
+
 def git(*args):
     return subprocess.check_output(['git', '-C', str(repo), *args])
 # Read the allowlist from the index too: checking a commit must not trust

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Desktop keyring
+Comment=Start Secret Service and SSH keyring integration
+Exec=sh -c "exec ~/.local/bin/dotfiles-keyring-session"
+TryExec=gnome-keyring-daemon
+NoDisplay=true
+X-GNOME-Autostart-enabled=true

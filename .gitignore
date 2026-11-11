@@ -254,3 +254,16 @@
 !/sddm/tokyo-night/ThemeButton.qml
 !/sddm/tokyo-night/metadata.desktop
 !/sddm/tokyo-night/theme.conf
+!/home/.config/fish/conf.d/
+!/home/.config/fish/conf.d/30-git-agents.fish
+!/home/.config/git/
+!/home/.config/git/config
+!/home/.config/git/ignore
+!/home/.config/autostart/dotfiles-keyring.desktop
+!/home/.local/bin/
+!/home/.local/bin/dotfiles-keyring-session
+!/home/.local/bin/dotfiles-ssh-askpass
+!/git/
+/git/**
+!/git/setup.py
+!/git/README.md

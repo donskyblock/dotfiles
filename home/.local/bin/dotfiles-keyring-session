@@ -1,0 +1,15 @@
+#!/bin/sh
+# Start the desktop Secret Service and SSH keyring components for this user.
+set -eu
+command -v gnome-keyring-daemon >/dev/null 2>&1 || exit 1
+: "${XDG_RUNTIME_DIR:?A desktop login session is required}"
+keyring_control="$XDG_RUNTIME_DIR/keyring"
+mkdir -p "$keyring_control"
+chmod 700 "$keyring_control"
+gnome-keyring-daemon --start --components=secrets,pkcs11,ssh --control-directory="$keyring_control" >/dev/null
+if [ -S "$keyring_control/ssh" ]; then
+    export SSH_AUTH_SOCK="$keyring_control/ssh"
+    if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+        dbus-update-activation-environment SSH_AUTH_SOCK >/dev/null 2>&1 || :
+    fi
+fi

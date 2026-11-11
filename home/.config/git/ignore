@@ -1,0 +1,8 @@
+# Machine-local clutter and common private environment files.
+.DS_Store
+*~
+*.swp
+*.swo
+.env
+.env.local
+.env.*.local

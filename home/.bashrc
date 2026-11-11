@@ -22,5 +22,8 @@ ma() {
 export PATH="$HOME/.local/bin:$PATH"
 # <<< Codex installer <<<
 
+# Attach GPG pinentry to this terminal.
+if [ -t 0 ]; then export GPG_TTY="$(tty)"; fi
+
 # Private, machine-specific settings (never tracked here).
 [ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"

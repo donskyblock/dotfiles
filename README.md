@@ -175,6 +175,14 @@ The setup was checked against the installed COSMIC 1.5-era schemas; other releas
 may change config formats. Complete live desktop appearance was not screenshot-verified
 because the setup environment could not access the desktop session bus.
 
+## Git identity and signing
+
+The public Git defaults are versioned; personal identity and key settings are
+private. To generate fresh SSH/GPG keys and configure signed commits, run
+`python3 ~/dotfiles/git/setup.py` in your terminal. It prompts locally for your
+identity and passphrases, preserves old keys, and verifies signing. See
+[Git key setup and GitHub registration](git/README.md).
+
 ## Version control & privacy
 
 ```sh
