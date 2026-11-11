@@ -10,7 +10,7 @@ A complete desktop setup for **Void Linux + COSMIC**, with matching shell and ap
 | Layer | Details |
 | --- | --- |
 | COSMIC | Navy surfaces, blue accents, rounded corners, 6 / 12 px window gaps, 2 px focus hint |
-| Panel & dock | Inset top panel, compact floating dock, restrained transparency and frosted system surfaces |
+| Panel & dock | Inset top panel, compact auto-hiding floating dock, restrained transparency and frosted system surfaces |
 | Terminal | Matching COSMIC Terminal and Foot palettes, comfortable padding, soft text, blue cursor |
 | Shell | Two-line Bash prompt, coloured file listings, `ll` and `dots` shortcuts |
 | Fastfetch | Void logo with blue / lavender headings and an OS-age helper |
