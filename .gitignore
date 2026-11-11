@@ -241,3 +241,16 @@
 !/home/.config/fish/functions/mkcd.fish
 !/home/.config/fish/functions/shellhelp.fish
 !/home/.config/fish/FISHER-LICENSE
+!/sddm/
+/sddm/**
+!/sddm/tests/
+!/sddm/tokyo-night/
+!/sddm/README.md
+!/sddm/install.py
+!/sddm/tests/Preview.qml
+!/sddm/tests/check_install.py
+!/sddm/tokyo-night/LICENSE
+!/sddm/tokyo-night/Main.qml
+!/sddm/tokyo-night/ThemeButton.qml
+!/sddm/tokyo-night/metadata.desktop
+!/sddm/tokyo-night/theme.conf

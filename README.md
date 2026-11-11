@@ -9,6 +9,7 @@ A complete desktop setup for **Void Linux + COSMIC**, with matching shell and ap
 
 | Layer | Details |
 | --- | --- |
+| SDDM | Matching Nightfall login screen, session selector, password controls, clock, and power actions |
 | COSMIC | Navy surfaces, blue accents, rounded corners, 6 / 12 px window gaps, 2 px focus hint |
 | Panel & dock | Inset top panel, compact auto-hiding floating dock, restrained transparency and frosted system surfaces |
 | Terminal | Matching COSMIC Terminal and Foot palettes, comfortable padding, soft text, blue cursor |
@@ -64,6 +65,18 @@ python3 rice.py --apply --fetch-wallpaper
 
 See [wallpaper sources and details](WALLPAPERS.md). The initial setup used Nightfall
 because direct GitHub downloads were unavailable in the execution environment.
+
+## SDDM login screen
+
+The matching Qt 6 login theme has a separate system installer:
+
+```sh
+python3 sddm/install.py             # prepare and show preview instructions
+sudo python3 sddm/install.py --apply
+```
+
+It backs up existing configuration and selects the theme for the next login
+screen without restarting your session. See [SDDM setup, preview, and rollback](sddm/README.md).
 
 ## Fish + Fisher
 
