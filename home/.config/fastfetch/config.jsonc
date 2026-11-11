@@ -1,0 +1,129 @@
+// Adapted from ExploitCraft/fastfetch-config (MIT):
+// https://github.com/ExploitCraft/fastfetch-config
+// Void palette, Alacritty-compatible logo, and local OS-age estimate.
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "void",
+    "color": {
+      "1": "38;2;142;192;124",
+      "2": "38;2;211;230;194"
+    },
+    "padding": {
+      "top": 3,
+      "right": 3
+    }
+  },
+  "display": {
+    "separator": "  ",
+    "color": {
+      "keys": "38;2;142;192;124",
+      "title": "38;2;211;230;194",
+      "separator": "38;2;91;119;89"
+    },
+    "key": {
+      "width": 17
+    },
+    "size": {
+      "ndigits": 1
+    },
+    "bar": {
+      "width": 10
+    }
+  },
+  "modules": [
+    {
+      "type": "title",
+      "format": "{#38;2;142;192;124}╭── {#}{user-name-colored}@{host-name-colored}"
+    },
+    {
+      "type": "custom",
+      "format": "{#38;2;142;192;124}│  VOID / SYSTEM"
+    },
+    {
+      "type": "os",
+      "key": "│  OS"
+    },
+    {
+      "type": "kernel",
+      "key": "│  Kernel"
+    },
+    {
+      "type": "command",
+      "key": "│  OS age (est.)",
+      "text": "sh \"$HOME/.config/fastfetch/os-age.sh\""
+    },
+    {
+      "type": "uptime",
+      "key": "│  Uptime"
+    },
+    {
+      "type": "packages",
+      "key": "│  Packages"
+    },
+    {
+      "type": "custom",
+      "format": "{#38;2;91;119;89}│"
+    },
+    {
+      "type": "custom",
+      "format": "{#38;2;142;192;124}├── DESKTOP"
+    },
+    {
+      "type": "wm",
+      "key": "│  Compositor"
+    },
+    {
+      "type": "display",
+      "key": "│  Display"
+    },
+    {
+      "type": "shell",
+      "key": "│  Shell"
+    },
+    {
+      "type": "terminal",
+      "key": "│  Terminal"
+    },
+    {
+      "type": "custom",
+      "format": "{#38;2;91;119;89}│"
+    },
+    {
+      "type": "custom",
+      "format": "{#38;2;142;192;124}├── HARDWARE"
+    },
+    {
+      "type": "cpu",
+      "key": "│  CPU"
+    },
+    {
+      "type": "gpu",
+      "key": "│  GPU"
+    },
+    {
+      "type": "memory",
+      "key": "│  Memory",
+      "format": "{used} / {total} ({percentage})"
+    },
+    {
+      "type": "disk",
+      "key": "│  Storage",
+      "folders": "/",
+      "format": "{size-used} / {size-total} ({size-percentage}) · {filesystem}"
+    },
+    {
+      "type": "custom",
+      "format": "{#38;2;91;119;89}│"
+    },
+    {
+      "type": "colors",
+      "key": "│",
+      "symbol": "circle"
+    },
+    {
+      "type": "custom",
+      "format": "{#38;2;142;192;124}╰──────────────────────────────────────────"
+    }
+  ]
+}
