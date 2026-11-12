@@ -5,7 +5,7 @@ import re
 import subprocess
 from pathlib import Path
 repo = Path(__file__).resolve().parent
-allowed = {'.gitignore', 'README.md', 'install.py', 'check-public.py', 'manifest.txt', 'hooks/pre-commit', 'rice.py', 'WALLPAPERS.md'}
+allowed = {'.gitignore', 'README.md', 'CONTRIBUTING.md', 'KEYBINDS.md', 'install.py', 'check-public.py', 'manifest.txt', 'hooks/pre-commit', 'rice.py', 'WALLPAPERS.md'}
 
 allowed.update({'sddm/tokyo-night/LICENSE', 'sddm/README.md', 'sddm/install.py', 'sddm/tests/Preview.qml', 'sddm/tests/check_install.py', 'sddm/tokyo-night/Main.qml', 'sddm/tokyo-night/metadata.desktop', 'sddm/tokyo-night/theme.conf', 'sddm/tokyo-night/ThemeButton.qml'})
 

@@ -46,14 +46,7 @@ its own swaybg child. It does not start either shell in COSMIC. Existing bars or
 notification daemons started elsewhere should be disabled in those sessions to
 avoid duplicates, especially when selecting DMS.
 
-| Shortcut | Hyprland / Niri / Mango |
-| --- | --- |
-| Super+Return | Foot |
-| Super+D | Rofi or DMS Spotlight |
-| Super+arrows | Focus (Mango retains its existing Super left/right tag switching) |
-| Super+1…9 | Workspace (Mango retains Ctrl+1…9 for tags) |
-| Super+Shift+1…9 | Move to workspace (Mango retains Alt+1…9) |
-| Super+Q | Close (Mango retains Alt+Q) |
+See [the keybind reference](../KEYBINDS.md) for each compositor's shortcuts.
 
 Mango preserves the established bindings, layouts, and gestures; it adds the
 shared terminal and launcher shortcuts. Hardware device paths are not forced.

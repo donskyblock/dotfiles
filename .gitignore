@@ -1,6 +1,8 @@
 /*
 !/.gitignore
 !/README.md
+!/CONTRIBUTING.md
+!/KEYBINDS.md
 !/install.py
 !/check-public.py
 !/manifest.txt
