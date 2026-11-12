@@ -8,10 +8,6 @@ This is a personal desktop setup, so expect to adjust a few things for your own
 machine. You can install the COSMIC setup together or pick individual parts.
 There are also companion configs for Hyprland, Niri and Mango.
 
-![Nightfall wallpaper — navy mountains under a starry sky](home/.local/share/wallpapers/tokyo-night.svg)
-
-*The bundled Nightfall wallpaper. This is the artwork, not a desktop screenshot.*
-
 [Install](#getting-started) · [Pick individual parts](#install-only-what-you-want) ·
 [Keybinds](KEYBINDS.md) · [Customise](#make-it-yours) ·
 [Restore](#undoing-changes) · [Contributing](CONTRIBUTING.md)
