@@ -1,0 +1,9 @@
+window { background-color: transparent; color: #c0caf5; font-family: "Noto Sans"; }
+.music-card { background: rgba(20, 23, 38, 0.92); border: 1px solid rgba(125, 207, 255, 0.28); border-radius: 20px; padding: 24px; }
+.eyebrow { color: #7dcfff; font-size: 10px; letter-spacing: 2px; margin-bottom: 9px; }
+.title { color: #c0caf5; font-size: 23px; font-weight: 600; }
+.artist { color: #a9b1d6; font-size: 13px; }
+.hint { color: #a9b1d6; font-size: 9px; letter-spacing: 1px; margin-top: 5px; }
+button { background: #24283b; background-image: none; color: #bb9af7; border: 1px solid #343b58; border-radius: 10px; box-shadow: none; padding: 7px 14px; }
+button:hover { background: #343b58; color: #7dcfff; }
+button:disabled { color: #565f89; }

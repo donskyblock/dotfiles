@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Check the Git index without printing potentially sensitive contents."""
+import hashlib
 import re
 import subprocess
 from pathlib import Path
@@ -8,11 +9,20 @@ allowed = {'.gitignore', 'README.md', 'install.py', 'check-public.py', 'manifest
 
 allowed.update({'sddm/tokyo-night/LICENSE', 'sddm/README.md', 'sddm/install.py', 'sddm/tests/Preview.qml', 'sddm/tests/check_install.py', 'sddm/tokyo-night/Main.qml', 'sddm/tokyo-night/metadata.desktop', 'sddm/tokyo-night/theme.conf', 'sddm/tokyo-night/ThemeButton.qml'})
 
+allowed.update({'install.sh', 'sddm/tokyo-night/background.png',
+                'sddm/tokyo-night/WALLPAPER.md', 'sddm/tokyo-night/WALLPAPER-LICENSE.txt'})
+
 allowed.update({'git/setup.py', 'git/README.md'})
 
 allowed.update({'cursor/apply.py', 'cursor/README.md'})
 
 allowed.update({'discord/setup.py', 'discord/README.md', 'discord/discord-native.desktop.in', 'discord/theme.py'})
+
+allowed.update({'desktop/settings.json', 'desktop/style.css', 'desktop/widget.py', 'desktop/cava.conf', 'desktop/WALLPAPER-LICENSE.txt', 'desktop/README.md', 'desktop/neon-sign.jpg', 'desktop/install.py'})
+
+allowed.update({'companions/dms/tokyo-night.json', 'companions/mango/config.conf', 'companions/hypr/hyprland.conf', 'companions/hypr/hyprland.lua', 'companions/quickshell/shell.qml', 'companions/niri/config.kdl', 'companions/after-hours-shell', 'companions/install.py'})
+
+allowed.update({'companions/README.md', 'companions/check_install.py'})
 
 def git(*args):
     return subprocess.check_output(['git', '-C', str(repo), *args])
@@ -39,6 +49,16 @@ for raw in git('ls-files', '--stage', '-z').split(b'\0'):
         failed = True
         continue
     data = git('cat-file', 'blob', oid.decode())
+    # Only the reviewed upstream wallpaper is allowed as a binary asset.
+    wallpaper_hashes = {
+        'sddm/tokyo-night/background.png': '7b6a84b47d3d5ab837bc1c658cf987dc5342f71ec8ba09c059270ec2cc0d499c',
+        'desktop/neon-sign.jpg': '1547c5ab67b9a778ced36fc1389eb93f3f24dedbe08e9db2ec9b587237f4982f',
+    }
+    if name in wallpaper_hashes:
+        if hashlib.sha256(data).hexdigest() != wallpaper_hashes[name]:
+            print('Wallpaper differs from the reviewed upstream asset.')
+            failed = True
+        continue
     if b'\0' in data or any(re.search(p, data) for p in patterns):
         print(f'Potential sensitive content: {name}')
         failed = True

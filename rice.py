@@ -15,7 +15,7 @@ HOME = Path.home()
 STATE = HOME / '.local/state/dotfiles'
 WALL = HOME / '.local/share/wallpapers/tokyo-night.png'
 # Source reviewed through GitHub; download is optional and never executes remote code.
-GITHUB_WALL = 'https://raw.githubusercontent.com/tokyo-night/wallpapers/main/night/abstract/lockscreen_00_3840x2160.png'
+GITHUB_WALL = 'https://raw.githubusercontent.com/tokyo-night/wallpapers/9a72582d7505da9a28b2fd77c155fbf140f6c8f0/misc/cityscape/neon-sign_00_1920x1080.jpg'
 
 def preserve(path, backup):
     if os.path.lexists(path):
@@ -52,9 +52,9 @@ def apply(fetch=False):
         # leaves the existing theme and wallpaper intact.
         with urllib.request.urlopen(GITHUB_WALL, timeout=20) as response:
             data = response.read(25 * 1024 * 1024 + 1)
-        if len(data) > 25 * 1024 * 1024 or not data.startswith(b'\x89PNG\r\n\x1a\n'):
-            raise SystemExit('Wallpaper download is not a valid size-limited PNG.')
-        loader = GdkPixbuf.PixbufLoader.new_with_type('png')
+        if len(data) > 25 * 1024 * 1024 or not (data.startswith(b'\x89PNG\r\n\x1a\n') or data.startswith(b'\xff\xd8\xff')):
+            raise SystemExit('Wallpaper download is not a valid size-limited PNG or JPEG.')
+        loader = GdkPixbuf.PixbufLoader.new()
         loader.write(data)
         loader.close()
         pixbuf = loader.get_pixbuf()

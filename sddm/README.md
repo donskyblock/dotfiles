@@ -1,7 +1,16 @@
 # Tokyo Night · SDDM
 
-An original Qt 6 login theme matching the COSMIC setup: Nightfall mountains,
-midnight navy card, blue focus accents, lavender details, and a quiet clock.
+**After Hours** is an original Qt 6 login theme inspired by SilentSDDM’s quiet
+spacing, with its own Tokyo Night styling: a borderless form on wide screens,
+a large clock, lavender accents, and a neon-lit nighttime café from GitHub.
+Compact screens use a dark readable panel and a scrolling form.
+
+```sh
+./install.sh sddm --apply   # only SDDM; requests sudo
+./install.sh               # choose one component from the menu
+```
+
+The SDDM choice never invokes the desktop, cursor, or Discord installers.
 
 The theme includes:
 
@@ -30,10 +39,10 @@ sddm-greeter-qt6 --test-mode --theme "$HOME/.local/state/dotfiles/sddm/tokyo-nig
 Preview mode cannot authenticate or perform real power actions. It may use
 example users rather than your real account. Close the preview normally.
 
-Preparation renders a PNG from the tracked Nightfall SVG, avoiding differences
-between Qt's SVG renderer and the desktop wallpaper renderer. The build stays
-outside Git. PyGObject / GdkPixbuf / librsvg are required for preparation; the
-greeter only needs the generated PNG and Qt 6.
+Preparation copies the bundled 4K PNG and theme files without network access
+or image-rendering dependencies. Qt 6 Quick Controls and SDDM are needed to run
+the greeter. Source, pinned commit, checksum, and license are documented in
+[tokyo-night/WALLPAPER.md](tokyo-night/WALLPAPER.md).
 
 ## Apply
 
@@ -53,8 +62,7 @@ display server, or runit services. **It does not restart SDDM or close your sess
 The new theme appears the next time SDDM opens its login screen (typically after
 logging out or rebooting); COSMIC's lock screen is a separate component.
 
-System installation could not be performed by the setup agent because its
-system directories were read-only. Run the apply command above from your terminal.
+Run the apply command from your terminal to select the theme system-wide.
 
 ## Check and restore
 

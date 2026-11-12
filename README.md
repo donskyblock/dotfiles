@@ -28,6 +28,29 @@ A complete desktop setup for **Void Linux + COSMIC**, with matching shell and ap
 
 ## Install
 
+To install **just the login theme**, use the component installer:
+
+```sh
+./install.sh                 # menu; defaults to SDDM only
+./install.sh sddm            # prepare a local preview
+./install.sh sddm --apply    # install only SDDM (requests sudo)
+```
+
+Other choices: `wallpaper`, `widgets`, `cursor`, `discord`, `desktop` (existing complete desktop setup),
+and `all` (desktop + SDDM). Changes require `--apply`, or an affirmative answer
+in the menu. SDDM uses its own bundled nighttime café wallpaper from GitHub;
+your desktop wallpaper stays independent. See [SDDM details](sddm/README.md).
+
+Desktop additions can also be installed individually:
+
+```sh
+./install.sh wallpaper --apply  # selected neon-sign wallpaper
+./install.sh widgets --apply    # now playing, playback controls, audio spectrum
+```
+
+See [desktop widget setup and placement](desktop/README.md). The music card sits
+behind windows on COSMIC/Wayland and starts automatically at login.
+
 Requires **Git, Python 3, PyGObject, GdkPixbuf, and the librsvg image loader**.
 The setup uses already installed Noto Sans / DejaVu Sans Mono fonts and Papirus-Dark
 icons. Install the relevant apps separately; this repository does not install packages.
@@ -54,6 +77,20 @@ unchanged, log out and back in after saving your work.
 Keep this repository in place. If you move it, remove its old links and run the
 installer from the new location. The `dots` shell shortcut assumes `~/dotfiles`.
 
+## Companion desktops
+
+Matching Hyprland, Niri, and Mango setups now include a custom Quickshell bar
+and a DankMaterialShell palette. Each can be installed independently:
+
+```sh
+./install.sh companions           # preview all companions
+./install.sh companions --apply   # install all; Quickshell selected
+./install.sh niri --apply         # just Niri + Quickshell
+./install.sh dms --apply          # select DankMaterialShell instead
+```
+
+See [companion setup, shell selection, dependencies, and rollback](companions/README.md).
+
 ## Wallpaper
 
 Nightfall is rendered locally from the tracked SVG to an untracked PNG. The actual
@@ -64,7 +101,7 @@ For the optional GitHub wallpaper:
 python3 rice.py --apply --fetch-wallpaper
 ```
 
-See [wallpaper sources and details](WALLPAPERS.md). The initial setup used Nightfall
+See [wallpaper sources and details](WALLPAPERS.md). The original setup used Nightfall
 because direct GitHub downloads were unavailable in the execution environment.
 
 ## Cursor

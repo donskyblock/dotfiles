@@ -17,7 +17,8 @@ DEST = Path('/usr/share/sddm/themes') / NAME
 DROPIN = Path('/etc/sddm.conf.d/90-tokyo-night.conf')
 LEGACY = Path('/etc/sddm.conf')
 BACKUPS = Path('/var/lib/dotfiles/sddm-backups')
-SOURCES = ('Main.qml', 'ThemeButton.qml', 'metadata.desktop', 'theme.conf', 'LICENSE')
+SOURCES = ('Main.qml', 'ThemeButton.qml', 'metadata.desktop', 'theme.conf', 'LICENSE',
+           'background.png', 'WALLPAPER-LICENSE.txt', 'WALLPAPER.md')
 
 
 def prepare(destination):
@@ -26,12 +27,6 @@ def prepare(destination):
     for name in SOURCES:
         shutil.copyfile(BASE / NAME / name, destination / name)
         (destination / name).chmod(0o644)
-    import gi
-    gi.require_version('GdkPixbuf', '2.0')
-    from gi.repository import GdkPixbuf
-    image = GdkPixbuf.Pixbuf.new_from_file(str(REPO / 'home/.local/share/wallpapers/tokyo-night.svg'))
-    image.savev(str(destination / 'background.png'), 'png', [], [])
-    (destination / 'background.png').chmod(0o644)
     destination.chmod(0o755)
     return destination
 

@@ -1,0 +1,27 @@
+{
+  "name": "After Hours \u00b7 Tokyo Night",
+  "id": "after-hours-tokyo-night",
+  "dark": {
+    "primary": "#7aa2f7",
+    "primaryText": "#15161e",
+    "secondary": "#bb9af7",
+    "tertiary": "#7dcfff",
+    "surface": "#1a1b26",
+    "surfaceText": "#c0caf5",
+    "surfaceVariant": "#24283b",
+    "surfaceVariantText": "#a9b1d6",
+    "surfaceTint": "#7aa2f7",
+    "background": "#15161e",
+    "backgroundText": "#c0caf5",
+    "outline": "#565f89",
+    "outlineVariant": "#414868",
+    "surfaceContainerLowest": "#15161e",
+    "surfaceContainerLow": "#1a1b26",
+    "surfaceContainer": "#24283b",
+    "surfaceContainerHigh": "#292e42",
+    "surfaceContainerHighest": "#33467c",
+    "error": "#f7768e",
+    "warning": "#e0af68",
+    "success": "#9ece6a"
+  }
+}

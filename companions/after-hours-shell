@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+"""Start the selected After Hours shell inside the current Wayland session."""
+import fcntl
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+
+home = Path.home()
+config = home / '.config/after-hours/shell'
+mode = config.read_text().strip() if config.exists() else 'quickshell'
+if mode not in ('quickshell', 'dms'):
+    raise SystemExit('Unknown shell selection in ' + str(config))
+
+def executable(*names):
+    for name in names:
+        if path := shutil.which(name):
+            return path
+    raise SystemExit('Missing command: ' + ' or '.join(names))
+
+if sys.argv[1:] == ['launcher']:
+    command = [executable('dms'), 'ipc', 'call', 'spotlight', 'toggle'] if mode == 'dms' else [executable('rofi'), '-show', 'drun']
+    os.execv(command[0], command)
+if sys.argv[1:]:
+    raise SystemExit('Usage: after-hours-shell [launcher]')
+runtime = os.environ.get('XDG_RUNTIME_DIR')
+display = os.environ.get('WAYLAND_DISPLAY')
+if not runtime or not display:
+    raise SystemExit('Start this helper inside a Wayland session.')
+lock = open(Path(runtime) / ('after-hours-' + Path(display).name + '.lock'), 'w')
+try:
+    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+except BlockingIOError:
+    raise SystemExit('After Hours is already running on this display.')
+command = [executable('dms'), 'run'] if mode == 'dms' else [executable('quickshell', 'qs'), '-c', 'after-hours']
+wallpaper = None
+if mode == 'quickshell' and shutil.which('swaybg'):
+    image = home / '.local/share/wallpapers/after-hours.jpg'
+    if image.is_file():
+        wallpaper = subprocess.Popen(['swaybg', '-i', str(image), '-m', 'fill'])
+try:
+    raise SystemExit(subprocess.call(command))
+finally:
+    if wallpaper:
+        wallpaper.terminate()
+        wallpaper.wait()

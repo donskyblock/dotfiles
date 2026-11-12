@@ -12,7 +12,7 @@ Rectangle {
     property bool loginComplete: false
     property date now: new Date()
     property string pendingPower: ""
-    readonly property bool wide: width >= 1120
+    readonly property bool wide: width >= 1120 && height >= 720
     readonly property string uiFont: config.font || "Noto Sans"
     readonly property int layoutCount: typeof keyboard !== "undefined" && keyboard.layouts ? keyboard.layouts.length : 0
     readonly property bool capsOn: typeof keyboard !== "undefined" && keyboard.capsLock
@@ -54,9 +54,9 @@ Rectangle {
         anchors.fill: parent
         gradient: Gradient {
             orientation: Gradient.Horizontal
-            GradientStop { position: 0; color: "#b310111c" }
-            GradientStop { position: 0.55; color: "#3010111c" }
-            GradientStop { position: 1; color: "#1010111c" }
+            GradientStop { position: 0; color: "#f210111c" }
+            GradientStop { position: 0.48; color: "#bd10111c" }
+            GradientStop { position: 1; color: "#5010111c" }
         }
     }
     Row {
@@ -65,7 +65,7 @@ Rectangle {
         anchors.margins: root.wide ? 48 : 24
         spacing: 12
         Rectangle { width: 8; height: 8; radius: 4; color: "#7aa2f7"; anchors.verticalCenter: parent.verticalCenter }
-        Text { text: "N I G H T F A L L"; color: "#c0caf5"; font.family: root.uiFont; font.pixelSize: 12; font.weight: Font.Medium }
+        Text { text: "A F T E R H O U R S"; color: "#c0caf5"; font.family: root.uiFont; font.pixelSize: 12; font.weight: Font.Medium }
         Text { text: "/  TOKYO NIGHT"; color: "#737aa2"; font.family: root.uiFont; font.pixelSize: 12 }
     }
     Column {
@@ -73,12 +73,12 @@ Rectangle {
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.rightMargin: 52
-        anchors.topMargin: 42
+        anchors.topMargin: 64
         spacing: 4
         Text {
             anchors.right: parent.right
             text: Qt.formatTime(root.now, "HH:mm")
-            color: "#c0caf5"; font.family: root.uiFont; font.pixelSize: 38; font.weight: Font.Light
+            color: "#c0caf5"; font.family: root.uiFont; font.pixelSize: 76; font.weight: Font.Light
         }
         Text {
             anchors.right: parent.right
@@ -89,15 +89,14 @@ Rectangle {
     // This card stays usable on smaller laptop panels and high-DPI screens.
     Rectangle {
         id: card
-        width: Math.min(420, root.width - 40)
+        width: Math.min(390, root.width - 40)
         height: Math.min(root.height - 128, content.implicitHeight + 64)
         x: root.wide ? Math.max(48, Math.round(root.width * 0.08)) : Math.round((root.width - width) / 2)
         y: Math.max(72, Math.round((root.height - height) / 2))
-        radius: 22
-        color: "#f2161825"
-        border.color: "#414868"
-        border.width: 1
-        Rectangle { x: 32; y: 0; width: 64; height: 2; color: "#7aa2f7"; radius: 1 }
+        radius: 0
+        color: root.wide ? "transparent" : "#ed161825"
+        border.width: 0
+        Rectangle { x: 32; y: 0; width: 32; height: 2; color: "#bb9af7"; radius: 1 }
         Flickable {
             anchors.fill: parent
             anchors.margins: 32
@@ -111,9 +110,9 @@ Rectangle {
                 ColumnLayout {
                     Layout.fillWidth: true
                     spacing: 7
-                    Text { text: "A QUIET PLACE TO BEGIN"; color: "#bb9af7"; font.family: root.uiFont; font.pixelSize: 10; font.letterSpacing: 1.8 }
-                    Text { text: qsTr("Welcome back."); color: "#c0caf5"; font.family: root.uiFont; font.pixelSize: 32; font.weight: Font.DemiBold }
-                    Text { text: qsTr("Your next session starts here."); color: "#a9b1d6"; font.family: root.uiFont; font.pixelSize: 13 }
+                    Text { text: "S L O W   D O W N .   S I G N   I N ."; color: "#bb9af7"; font.family: root.uiFont; font.pixelSize: 10; font.letterSpacing: 1.8 }
+                    Text { text: qsTr("Good to see you."); color: "#c0caf5"; font.family: root.uiFont; font.pixelSize: 30; font.weight: Font.DemiBold }
+                    Text { text: qsTr("A little quiet before your next idea."); color: "#a9b1d6"; font.family: root.uiFont; font.pixelSize: 13 }
                 }
                 Item { Layout.preferredHeight: 4 }
                 ColumnLayout {
@@ -240,17 +239,18 @@ Rectangle {
     }
     Column {
         visible: root.wide
-        x: root.width * 0.57
-        y: root.height * 0.73
-        spacing: 12
-        Text { text: "STAY CURIOUS."; color: "#c0caf5"; font.family: root.uiFont; font.pixelSize: 30; font.letterSpacing: 3; font.weight: Font.Light }
-        Text { text: "Make something worth staying up for."; color: "#a9b1d6"; font.family: root.uiFont; font.pixelSize: 14 }
-        Rectangle { width: 44; height: 2; color: "#bb9af7" }
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.rightMargin: 52
+        anchors.bottomMargin: 112
+        spacing: 8
+        Text { anchors.right: parent.right; text: "夜 / AFTER HOURS"; color: "#c0caf5"; font.family: root.uiFont; font.pixelSize: 12; font.letterSpacing: 2 }
+        Text { anchors.right: parent.right; text: qsTr("The city slows. Your ideas don't."); color: "#a9b1d6"; font.family: root.uiFont; font.pixelSize: 13 }
     }
     Row {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        anchors.margins: root.wide ? 40 : 16
+        anchors.margins: root.wide ? 48 : 12
         spacing: 8
         ThemeButton {
             width: 72; height: 36
@@ -260,9 +260,9 @@ Rectangle {
             enabled: !root.busy
             onClicked: keyboard.currentLayout = (keyboard.currentLayout + 1) % keyboard.layouts.length
         }
-        ThemeButton { width: 86; height: 36; text: qsTr("Sleep"); visible: sddm.canSuspend; enabled: !root.busy; onClicked: sddm.suspend() }
-        ThemeButton { width: 86; height: 36; text: qsTr("Restart"); visible: sddm.canReboot; enabled: !root.busy; onClicked: root.requestPower("restart") }
-        ThemeButton { width: 86; height: 36; text: qsTr("Power off"); danger: true; visible: sddm.canPowerOff; enabled: !root.busy; onClicked: root.requestPower("poweroff") }
+        ThemeButton { width: Math.min(86, (root.width - 56) / 4); height: 36; text: qsTr("Sleep"); visible: sddm.canSuspend; enabled: !root.busy; onClicked: sddm.suspend() }
+        ThemeButton { width: Math.min(86, (root.width - 56) / 4); height: 36; text: qsTr("Restart"); visible: sddm.canReboot; enabled: !root.busy; onClicked: root.requestPower("restart") }
+        ThemeButton { width: Math.min(86, (root.width - 56) / 4); height: 36; text: qsTr("Power off"); danger: true; visible: sddm.canPowerOff; enabled: !root.busy; onClicked: root.requestPower("poweroff") }
     }
     Dialog {
         id: powerDialog
